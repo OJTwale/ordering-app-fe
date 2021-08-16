@@ -1,0 +1,10 @@
+export const CREATE_ORDER_URL: string= "/orders/createOrder";
+export const LIST_ALL_ORDERS: string= "/orders/all";
+export const GET_ORDER_BY_ID: string="/orders/";
+export const LIST_ALL_PRODUCTS: string= "/products/all";
+export const GET_STATUS: string= "/orders/status/";
+export const UPDATE_ORDER: string= "/orders/update";
+export const LIST_ALL_STATUS: string="/orders/status/all";
+export const DELETE_ORDER_BY_ID: string="/orders/delete/";
+export const VERIFY_USER_EXISTS: string="/users/login";
+export const FIND_USER_BY_USERNAME: string="/users/login/";

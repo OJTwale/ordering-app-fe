@@ -1,0 +1,43 @@
+input[type=text], input[type=password] {
+    width: 70%;
+    padding: 10px 15px;
+    margin: 8px 0;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: rgb(62, 128, 62);
+    color: white;
+    padding: 14px 20px;
+    margin: auto;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    border: 2px solid black;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  body {
+    background: #93c572;
+    border-top: 8px double black;
+    border-bottom: 8px double black;
+    border-left: 8px double black;
+    border-right: 8px double black;
+    font: 300 1em 'Fira Sans', sans-serif;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+  }
+  form {
+       border: 2px solid black;
+       outline: #4caf50 solid 2px;
+       margin: auto;
+       padding: 50px;
+       text-align: center;
+  }

@@ -1,0 +1,13 @@
+body {
+    background: #93c572;
+    border-right: 8px double black;  
+    border-left: 8px double black; 
+    border-top: 8px double black;
+    border-bottom: 8px double black;
+    justify-content: center;
+    
+    
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+}

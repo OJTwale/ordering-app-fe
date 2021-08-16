@@ -1,0 +1,65 @@
+<body>
+    
+    <div class="container">
+       
+    <b><h1 style="font-family: 'Times New Roman', Times, serif;">Create New Order</h1></b>
+    <h5>(All fields marked with<span style="color: red;"> * </span>are required)</h5>
+    <form #create="ngForm" (ngSubmit)="onCreate(create)" style="border: 1px solid #ccc; padding:10px;">
+    
+    <div class="required-field" style="display:flex;">
+            <label for="products" class="label" style="margin-top: 40px; margin-left: 40px;">Select Products<span style="color: red;"> * </span>: </label>
+        
+            <div id="wrapper" style='margin-top: 30px;'>
+            <div id='content' style="margin: 0px auto; width:250px;">
+            <angular2-multiselect 
+                [data]="products" 
+                [(ngModel)]="formModel.selectedProducts" name="selectedProducts" 
+                [settings]="dropdownSettings" 
+                (onSelect)="onItemSelect($event)" 
+                (onDeSelect)="onItemDeSelect($event)"
+                (onSelectAll)="onItemSelect($event)"
+                (onDeSelectAll)="onItemDeSelect($event)">
+                
+                <c-item>
+                    
+                    <ng-template let-item="item">
+                        
+                      <label style="color: #333;min-width: 150px;">{{item.productName}}</label>
+                      <span>: </span>
+                      <label>Price - {{item.productCost}}/-</label>
+                    </ng-template>
+            </c-item> 
+            </angular2-multiselect>
+            </div>
+            </div>
+    </div>   
+
+    <br>
+
+    <div class="required-field">
+            <label for="orderCost" class="label">Order Cost<span style="color: red;"> * </span>: </label>
+            <input name="oCost" [(ngModel)]="totalCost" required disabled type="number" placeholder="Order Cost">
+    </div>
+    
+    <br><br>
+    
+        <div class="required-field">
+            <label for="customerName" class="label">Customer Name<span style="color: red;"> * </span>: </label>
+            <input type="text" [(ngModel)]="formModel.cName" name="cName" #name="ngModel" required placeholder="Customer Name" onkeypress="return (event.charCode>64 && event.charCode<91)||(event.charCode>96 && event.charCode<123)||(event.charCode==32)">
+        </div>
+    
+        <br><br>
+    
+        <div class="required-field">
+            <label for="customerAddress" class="label">Customer Address<span style="color: red;"> * </span>: </label>
+            <input type="text" name="cAddress" [(ngModel)]="formModel.cAddress" #name="ngModel" required placeholder="Customer Address">
+        </div> 
+    <br>
+    
+    <button class="raise" id="submit">Create Order</button>   
+    <button class="raise" type="reset" value="Reset">Reset</button>    
+    <button class="raise" [routerLink]="'/home'">Cancel</button>
+    <br>
+    </form>
+</div>
+</body>

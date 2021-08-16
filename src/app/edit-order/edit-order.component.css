@@ -1,0 +1,46 @@
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 var(--hover); }
+  }
+   
+  .raise:hover{
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+  }
+  
+  .label{
+      color: black;
+      font-size: large;
+  }
+   
+  body {
+    background-color: darkseagreen;
+    border-top: 8px double black;
+    border-bottom: 8px double black;
+    border-left: 8px double black;
+    border-right: 8px double black;
+    font: 300 1em 'Fira Sans', sans-serif;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+  }
+  h1 { font-weight: 400; color:black;}
+   
+  button {
+    background: white;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+  }
+  .label{
+      cursor: pointer;
+      display: inline-block;
+      padding: 4px 8px;
+      text-align: right;
+      width: 200px;
+      vertical-align: top;
+  }
