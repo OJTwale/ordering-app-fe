@@ -1,10 +1,9 @@
-
 <body>
     <div>
         <div class="flex">
-    <div style="text-align: left; vertical-align: text-top" *ngIf="ifLoggedIn()">Welcome {{userName}}</div>
+    <div style="text-align: left; vertical-align: text-top" *ngIf="ifLoggedIn()" class="noDecoration">Welcome {{userName}}</div>
     
-    <div style="text-align: right; vertical-align: text-top"><a *ngIf="ifLoggedIn()" (click)="logout()">Logout</a></div>
+    <div style="text-align: right; vertical-align: text-top" class="noDecorate"><button *ngIf="ifLoggedIn()" (click)="logout()">Logout</button></div>
     </div>
     <div align="center">
         <h3 style="color: black;">Welcome to Order Management</h3>
@@ -13,7 +12,6 @@
             <a *ngIf="isUserAdmin()" routerLink="/orders">Display Orders</a>
         </div></div>
     
-
     </div>
     </body>
     
@@ -31,5 +29,3 @@
         </tr>
     </tbody>
 </table> -->
-
- 

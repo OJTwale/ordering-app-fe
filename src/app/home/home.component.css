@@ -26,3 +26,14 @@ body {
         margin: 0.5em;
         padding: 1em 2em;
         }
+        .noDecorate{
+          position: absolute;
+          top: 1em;
+          right: 2em;
+          font-size: small;
+        }
+        .noDecoration{
+          position: absolute;
+          top: 1em;
+          left: 2em;
+        }
