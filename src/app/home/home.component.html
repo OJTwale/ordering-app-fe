@@ -1,11 +1,20 @@
-<body>
-    <div align="center">
-        <h1 style="color: black;">Welcome to Order Management</h1>
-        <div>   
 
+<body>
+    <div>
+        <div class="flex">
+    <div style="text-align: left; vertical-align: text-top" *ngIf="ifLoggedIn()">Welcome {{userName}}</div>
+    
+    <div style="text-align: right; vertical-align: text-top"><a *ngIf="ifLoggedIn()" (click)="logout()">Logout</a></div>
+    </div>
+    <div align="center">
+        <h3 style="color: black;">Welcome to Order Management</h3>
+        <div>
             <a routerLink="/create">Create Order</a><br><br>
-            <a routerLink="/orders">Display Orders</a>
+            <a *ngIf="isUserAdmin()" routerLink="/orders">Display Orders</a>
         </div></div>
+    
+
+    </div>
     </body>
     
 <!-- <table class="table table-striped table-bordered">
