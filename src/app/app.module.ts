@@ -16,10 +16,12 @@ import { DisplayOrderComponent } from './display-order/display-order.component';
 import { DataTablesModule } from 'angular-datatables';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { LoginComponent } from './login/login.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 const routes: Routes= [
   {path: 'home', component: HomeComponent},
-  {path: 'create', component: CreateComponent}
+  {path: 'create', component: CreateComponent},
+  {path: 'forgetpassword', component: ForgotpasswordComponent}
 ]
 
 @NgModule({
@@ -30,7 +32,8 @@ const routes: Routes= [
     CreateComponent,
     DisplayOrderComponent,
     EditOrderComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,

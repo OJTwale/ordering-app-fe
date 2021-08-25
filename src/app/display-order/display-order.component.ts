@@ -15,21 +15,52 @@ import { OrderStatusService } from '../OrderStatus.service';
 export class DisplayOrderComponent implements OnInit {
 
   orders: CustomerOrder[];
+  ordersByUser: CustomerOrder[];
   allStatus: OrderStatus[];
   orderStatus: OrderStatus;
   updatedCustomerOrder: CustomerOrder;
   selectedIndex:number;
+  userName:string|null;
   
   
   constructor(private http: HttpClient, private customerOrderService:CustomerOrderService, private orderStatusService:OrderStatusService, private router: Router) {
     
-    
+    this.isUserAdmin();
    }
   
   ngOnInit(): void {
-    this.getCustomerOrders();
-    this.getAllStatus();
+    // this.getCustomerOrders();
+    // this.getAllStatus();
+    let username=sessionStorage.getItem('username');
+    this.userName=username;
   }
+
+  
+  public getOrdersByOrderedUser(username:string|null): void{
+    this.customerOrderService.getOrdersByOrderedUser(username).subscribe(
+      (response: CustomerOrder[])=>{
+        this.orders=response;
+      }
+    )
+  }
+
+  public isUserAdmin(){
+    let isAdmin = sessionStorage.getItem('isadmin');
+    let username = sessionStorage.getItem('username');
+    if(isAdmin==="true"){
+      this.getCustomerOrders();
+      return true
+    }
+    else{
+      this.customerOrderService.getOrdersByOrderedUser(username).subscribe(
+        (response: CustomerOrder[])=>{
+          this.orders=response;
+        }
+      )
+      return false
+    }
+  }
+
   public getCustomerOrders(): void {
     this.customerOrderService.getCustomerOrders().subscribe(
       (response: CustomerOrder[]) => {
@@ -56,7 +87,8 @@ export class DisplayOrderComponent implements OnInit {
       customerName: order.customerName,
       customerAddress: order.customerAddress,
       orderStatus: this.selectedIndex,
-      orderedProducts: order.orderedProducts
+      orderedProducts: order.orderedProducts,
+      orderedByUser: order.orderedByUser
     }
     this.customerOrderService.updateCustomerOrder(this.updatedCustomerOrder).subscribe(
       (response: any)=> {

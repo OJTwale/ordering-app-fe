@@ -100,7 +100,8 @@ export class EditOrderComponent implements OnInit {
       customerName: order.value.cName,
       customerAddress: order.value.cAddress,
       orderStatus: this.order.orderStatus,
-      orderedProducts: this.order.orderedProducts
+      orderedProducts: this.order.orderedProducts,
+      orderedByUser: this.order.orderedByUser
     }
 
     this.customerOrderService.updateCustomerOrder(this.newCustomerOrder).subscribe(

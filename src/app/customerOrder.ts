@@ -8,5 +8,6 @@ export interface CustomerOrder {
     customerName: string;
     customerAddress: string;
     orderStatus: number;
+    orderedByUser:string|null;
     orderedProducts:Product[];
 }

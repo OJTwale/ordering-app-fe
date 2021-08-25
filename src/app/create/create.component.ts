@@ -28,6 +28,7 @@ export class CreateComponent implements OnInit {
   customerName: string;
   customerAddress: string;
   products: any=[];
+  loggedInUserName:string|null;
   selectedItems: Product[];
   dropdownSettings: {};
   totalCost: number;
@@ -45,7 +46,8 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    let loggedInUserName = sessionStorage.getItem('username');
+    this.loggedInUserName= loggedInUserName;
     this.getProducts();
     this.dropdownSettings = {
       selectAllText: "Select All",
@@ -100,7 +102,8 @@ export class CreateComponent implements OnInit {
       customerName: order.value.cName,
       customerAddress: order.value.cAddress,
       orderStatus: 1,
-      orderedProducts: this.formModel.selectedProducts
+      orderedProducts: this.formModel.selectedProducts,
+      orderedByUser: this.loggedInUserName
       
     }
     this.customerOrderService.createCustomerOrder(this.newCustomerOrder).subscribe(

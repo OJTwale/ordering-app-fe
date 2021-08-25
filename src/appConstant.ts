@@ -8,3 +8,4 @@ export const LIST_ALL_STATUS: string="/orders/status/all";
 export const DELETE_ORDER_BY_ID: string="/orders/delete/";
 export const VERIFY_USER_EXISTS: string="/users/login";
 export const FIND_USER_BY_USERNAME: string="/users/login/";
+export const GET_ORDERS_BY_ORDERED_USER: string="/orders/byuser/";
